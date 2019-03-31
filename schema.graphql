@@ -1,0 +1,47 @@
+type Query {
+  posts: [Post!]!
+  post(id: ID!): Post
+}
+
+input CreatePostInput {
+  title: String
+  content: String
+}
+
+input UpdatePostInput {
+  id: ID!
+  title: String
+  content: String
+}
+
+input CreateCommentInput {
+  postId: ID
+  content: String
+}
+
+type PostResult {
+  post: Post
+}
+
+type CommentResult {
+  comment: Comment
+}
+
+type Mutation {
+  createPost(input: CreatePostInput!): PostResult
+  updatePost(input: UpdatePostInput!): PostResult
+  createComment(input: CreateCommentInput!): CommentResult
+}
+
+type Comment {
+  id: ID!
+  content: String!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+  published: Boolean!
+  comments: [Comment!]
+}
