@@ -2,17 +2,34 @@
 
 An example of GraphQL server using prisma and graphql-yoga.
 
-# Setup
+# How to use
+## Setup
 
 ```
-yarn
 docker-compose up -d
+yarn
+
+npm i -g prisma
+prisma deploy
 ```
 
-# Run server
+## Run server
 
 ```
-node index.js
+yarn start
+```
+
+Server is running on http://localhost:3030//graphql
+
+Here is a sample of a frontend that works with this backend;  
+https://github.com/suzukalight/apollo-client-graphql-blog
+
+## Reset Database
+
+```
+docker-compose down -v
+docker-compose up -d
+prisma deploy
 ```
 
 # Note
